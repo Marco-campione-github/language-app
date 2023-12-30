@@ -1,20 +1,60 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  View, StyleSheet
+} from "react-native"
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import HomePage from "./components/pages/homePage"
+import ApiPage from "./components/pages/apiPage"
+import VerbPage from "./components/pages/verbPage"
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function BottonTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        options={{
+          title: "Home Page"
+        }}
+        name='homePage'
+        component={HomePage} />
+      <Tab.Screen
+      options={{
+        title: "Verb Quiz"
+      }}
+      name='verbPage'
+      component={VerbPage} />
+      <Tab.Screen
+        options={{
+          title: "Api Call"
+        }}
+        name='apiPage'
+        component={ApiPage} />
+    </Tab.Navigator>
+  )
+}
 
 export default function App() {
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name='bottomTabs'
+            component={BottonTabs} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    flex: 1
+  }
+})
