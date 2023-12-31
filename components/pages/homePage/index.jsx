@@ -9,39 +9,38 @@ import {
     Pressable
 } from "react-native"
 import { useState } from "react"
-import TodoItem from "../../todoItem"
+import TodoItem from "../../elements/todoItem"
 
 export default function HomePage() {
 
     // useState for the text value
-  const [inputTextValue, setInputTextValue] = useState('')
-  const [listOfNotes, setListOfNotes] = useState([])
+    const [inputTextValue, setInputTextValue] = useState('')
+    const [listOfNotes, setListOfNotes] = useState([])
 
-  /**
-   * function: handleOnChangeText
-   * description: gets called every time the TextInput value changes
-   * parameters: enteredText
-   */
-  function handleOnChangeText(enteredText) {
-    setInputTextValue(enteredText)
-  }
+    /**
+     * function: handleOnChangeText
+     * description: gets called every time the TextInput value changes
+     * parameters: enteredText
+     */
+    function handleOnChangeText(enteredText) {
+        setInputTextValue(enteredText)
+    }
 
-  /**
-   * function: handleOnPressButton
-   * description: gets called every the Add Note button get pushed
-   * parameters: -
-   */
-  function handleOnPressButton() {
-    setListOfNotes(currentNotes => [...currentNotes, inputTextValue])
-    setInputTextValue('')
-  }
+    /**
+     * function: handleOnPressButton
+     * description: gets called every the Add Note button get pushed
+     * parameters: -
+     */
+    function handleOnPressButton() {
+        setListOfNotes(currentNotes => [...currentNotes, inputTextValue])
+        setInputTextValue('')
+    }
 
-  function handleRemoveItem(currentIndex) {
-    console.log('item pressed here')
-    let cpyListOfNotes = [...listOfNotes]
-    cpyListOfNotes = cpyListOfNotes.filter((_, index) => currentIndex !== index)
-    setListOfNotes(cpyListOfNotes)
-  }
+    function handleRemoveItem(currentIndex) {
+        let cpyListOfNotes = [...listOfNotes]
+        cpyListOfNotes = cpyListOfNotes.filter((_, index) => currentIndex !== index)
+        setListOfNotes(cpyListOfNotes)
+    }
 
     return (
         <View style={styles.container}>

@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import HomePage from "./components/pages/homePage"
 import ApiPage from "./components/pages/apiPage"
 import VerbPage from "./components/pages/verbPage"
+import ArticlesPage from "./components/pages/articlesPage"
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,11 +22,17 @@ function BottonTabs() {
         name='homePage'
         component={HomePage} />
       <Tab.Screen
-      options={{
-        title: "Verb Quiz"
-      }}
-      name='verbPage'
-      component={VerbPage} />
+        options={{
+          title: "Verb Quiz"
+        }}
+        name='verbPage'
+        component={VerbPage} />
+      <Tab.Screen
+        options={{
+          title: "Der/Die/Das"
+        }}
+        name='articlesPage'
+        component={ArticlesPage} />
       <Tab.Screen
         options={{
           title: "Api Call"

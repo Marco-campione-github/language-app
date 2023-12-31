@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 
-export default function VerbPage() {
+export default function ArticlesPage() {
     return (
         <View>
-            <Text>Verbs</Text>
+            <Text>Der/Die/Das</Text>
         </View>
     )
 }

@@ -34,7 +34,6 @@ export default function ApiPage() {
 
     }, []);
 
-    console.log(loading, 'loading');
     if(loading){
         return (
             <ActivityIndicator color={'red'} size="large"/>
