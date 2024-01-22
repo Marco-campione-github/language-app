@@ -4,10 +4,11 @@ import {
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import HomePage from "./components/pages/homePage"
-import ApiPage from "./components/pages/apiPage"
-import VerbPage from "./components/pages/verbPage"
-import ArticlesPage from "./components/pages/articlesPage"
+import HomePage from "./src/components/pages/homePage"
+import ApiPage from "./src/components/pages/apiPage"
+import VerbPage from "./src/components/pages/verbPage"
+import ArticlesPage from "./src/components/pages/articlesPage"
+import TEXTS from "./src/constants/texts"
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,25 +18,25 @@ function BottonTabs() {
     <Tab.Navigator>
       <Tab.Screen
         options={{
-          title: "Home Page"
+          title: TEXTS.HomePage
         }}
         name='homePage'
         component={HomePage} />
       <Tab.Screen
         options={{
-          title: "Verb Quiz"
+          title: TEXTS.VerbPage
         }}
         name='verbPage'
         component={VerbPage} />
       <Tab.Screen
         options={{
-          title: "Der/Die/Das"
+          title: TEXTS.ArticlesPage
         }}
         name='articlesPage'
         component={ArticlesPage} />
       <Tab.Screen
         options={{
-          title: "Api Call"
+          title: TEXTS.ApiPage
         }}
         name='apiPage'
         component={ApiPage} />

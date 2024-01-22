@@ -13,7 +13,7 @@ export default function TodoItem({ name, onPress }) {
             <TouchableOpacity onPress={onPress}>
                 <Image
                     style={{ width: 50, height: 50 }}
-                    source={require('../../../assets/icons/icons8-trash-512.png')}
+                    source={require('../../../../assets/icons/icons8-trash-512.png')}
                 />
             </TouchableOpacity>
         </View>
